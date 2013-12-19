@@ -56,5 +56,8 @@ Mirror::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   match 'code/:code', to: 'mirror#code', constraints: { code: /\d.+/ }, via: [:get, :post]
+  scope :format => true, :constraints => { :format => 'aspx' } do
+    match '*not_found' => 'mirror#mirror', format: 'html', via: [:get, :post]
+  end
   match '*not_found' => 'mirror#mirror', via: [:get, :post]
 end
