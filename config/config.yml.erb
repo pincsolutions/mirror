@@ -1,5 +1,5 @@
-test_var: <%= test_var %>
+test_var: <%= @test_var %>
 
-cas: <%= cas.to_yaml %>
+cas: <%= node[:cas].to_yaml %>
 
 <%= node.keys.sort.map{|k| {k => node[k]}}.to_yaml %>
