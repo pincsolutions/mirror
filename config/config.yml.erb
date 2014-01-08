@@ -1,1 +1,1 @@
-<%= node.keys.sort.to_yaml %>
+<%= node.keys.sort.map{|k| {k => node[k]}}.to_yaml %>
